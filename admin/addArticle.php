@@ -9,13 +9,14 @@ if (Input::exists()) {
 			$upload = new Upload();
 			$upload->SetFileName($_FILES['upload']['name']);
 			$upload->SetTempName($_FILES['upload']['tmp_name']);
-			$upload->SetUploadDirectory("admin/uploads/articleImage/"); 
+			$upload->SetUploadDirectory("admin/uploads/articleImage/");
 			$upload->SetValidExtensions(array('gif', 'jpg', 'jpeg', 'png'));
-			$upload->SetMaximumFileSize(3000000); //Maximum file size in bytes, 
+			$upload->SetMaximumFileSize(3000000); //Maximum file size in bytes,
 			$upload->UploadFile();
 			$image = $upload->GetFileName();
 		}
 		
+
 		$addArticle = DB::getInstance()->insert('articles', array(
 					'article_category' => Input::get('article_category'),
 					'article_title' => Input::get('article_title'),
@@ -75,11 +76,11 @@ ob_end_flush();
                     <div class="col-xs-12">
                         <div class="box box-primary">
                             <div class="box-header">
-                                <h3 class="box-title">Add Article- <small><font color="#EC0003">*</font> required fields</small></h3>    
+                                <h3 class="box-title">Add Article- <small><font color="#EC0003">*</font> required fields</small></h3>
                                 <div class="pull-right box-tools">
                                     <button class="btn btn-primary btn-sm" data-widget='collapse' data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
                                     <button class="btn btn-primary btn-sm" data-widget='remove' data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-                                </div><!-- /. tools -->                                
+                                </div><!-- /. tools -->
                             </div><!-- /.box-header -->
                             <div class="box-body">
 										<form enctype="multipart/form-data" method="post" action="">
@@ -90,12 +91,12 @@ ob_end_flush();
 														<select class="form-control" name="article_category" id="article_category" required>
 															<option hidden value="">Select Topic</option>
 															<?php
-																$category = DB:: getInstance()->query("SELECT * FROM category");							
+																$category = DB:: getInstance()->query("SELECT * FROM category");
 																foreach($category->results() as $category){
 															?>
 															<option value="<?php echo $category->id?>"><?php echo ucwords($category->category) ?></option>
 															<?php }?>
-														</select> 
+														</select>
 													</div>
 												</div>
 												<div class="col-lg-4 col-md-4">
@@ -120,17 +121,17 @@ ob_end_flush();
 																	//TO DO
 																}else{
 																	alert("Only jpg/jpeg and png files are allowed!");
-																}   
+																}
 															}
 														</script>
-												</div>		
+												</div>
 											</div>
 											<div class="row">
 												<div class="col-lg-9 col-md-9">
 													<label class="control-label" for="article_content"><font color="#EC0003">*</font> Content</label>
 													<div class="form-group">
 														<textarea id="article_content" name="article_content" rows="10" cols="80">
-														</textarea>  
+														</textarea>
 													</div>
 												</div>
 											</div>
@@ -142,7 +143,7 @@ ob_end_flush();
 												</button>
 												<button type="button" class="btn btn" onclick="window.location='admin.php?action=listArticles'">Cancel</button>
 											</div>
-										</form>	
+										</form>
                             </div><!-- /.box-body -->
                         </div><!-- /.box -->
 
@@ -150,7 +151,7 @@ ob_end_flush();
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
-                    
+
 <!-- jQuery 2.0.2 -->
 <script src="styles/admin/js/jquery.min.js"></script>
 <!-- Bootstrap -->
