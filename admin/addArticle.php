@@ -15,7 +15,8 @@ if (Input::exists()) {
 			$upload->UploadFile();
 			$image = $upload->GetFileName();
 		}
-		
+
+		// some changes here
 
 		$addArticle = DB::getInstance()->insert('articles', array(
 					'article_category' => Input::get('article_category'),
