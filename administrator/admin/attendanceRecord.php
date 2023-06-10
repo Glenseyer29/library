@@ -101,10 +101,25 @@
                               <td><?php echo $row['TIMEOUT']; ?></td>
                               <td><?php echo $row['LOGDATE']; ?></td>
                               <td><?php echo $row['STATUS']; ?></td>
-                              <td> <button>action</button> </td>
+                              <td align="center">
+                              <?php require_once ('delete-confirm.php');?>
+                              <form method="POST" action="" style="display:inline">
+                                <input type="hidden" name="id" value="<?php echo $STUDENTID->STUDENTID;  ?>">
+                              <button class="btn btn-xs btn-danger" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Confirm Delete" data-message="Are you sure you want to delete this?">
+                                  <i class="glyphicon glyphicon-trash"></i> Delete
+                                </button>
+                              </td>
+                              <td align="center">
+                              <?php require_once ('delete-confirm.php');?>
+                              <form method="POST" action="" style="display:inline">
+                                <input type="hidden" name="id" value="<?php echo $STUDENTID->STUDENTID;  ?>">
+                              <button class="btn btn-xs btn-secondary" type="button" data-toggle="modal" data-target="#confirmDelete" data-title="Confirm Delete" data-message="Are you sure you want to delete this?">
+                                  <i class="glyphicon glyphicon-trash"></i> Update
+                                </button>
+                              </td>
                           </tr>
                           <?php
-                      }
+                      }//push
                   } else {
                       echo "Error: " . $conn->error;
                   }
