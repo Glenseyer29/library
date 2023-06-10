@@ -101,10 +101,19 @@
                               <td><?php echo $row['TIMEOUT']; ?></td>
                               <td><?php echo $row['LOGDATE']; ?></td>
                               <td><?php echo $row['STATUS']; ?></td>
-                              <td> <button>action</button> </td>
+                              <td align="center">
+                              <?php require_once ('delete-confirm.php');?>
+                              <form method="POST" action="" style="display:inline">
+                                <a href="#" class="btn btn-danger"> DELETE</a>
+                              </form>
+                              <form method="POST" action="" style="display:inline">
+                                <a href="#" class="btn btn-primary">Update</a>
+                              </form>
+                              </td>
+
                           </tr>
                           <?php
-                      }
+                      }//push
                   } else {
                       echo "Error: " . $conn->error;
                   }
