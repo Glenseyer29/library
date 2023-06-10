@@ -1,5 +1,5 @@
 <?php
-<<<<<<< HEAD
+<<<<<< HEAD
 session_start(); // To display messages
 $server = "localhost";
 $username = "root";
