@@ -102,12 +102,13 @@
                               <td><?php echo $row['LOGDATE']; ?></td>
                               <td><?php echo $row['STATUS']; ?></td>
                               <td align="center">
-                              <?php require_once ('delete-confirm.php');?>
-                              <form method="POST" action="" style="display:inline">
-                                <a href="#" class="btn btn-danger"> DELETE</a>
+
+                              <form method="POST" action="delete.php" style="display:inline">
+                                <input type="hidden" name="ID" value="<?php echo $row['STUDENTID'] ?>">
+                                <a href="admin/delete.php" class="btn btn-danger"> DELETE</a>
                               </form>
                               <form method="POST" action="" style="display:inline">
-                                <a href="#" class="btn btn-primary">Update</a>
+                                <a href="#" class="btn btn-primary">EDIT</a>
                               </form>
                               </td>
 
