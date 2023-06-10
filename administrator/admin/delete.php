@@ -8,6 +8,7 @@ $dbname = "dbs";
 $conn = new mysqli($server, $username, $password, $dbname);
 
  if(isset($_POST['delete'])){
+   $STUDENTID =$_POST['ID'];
    $STUDENTID =$_POST['STUDENTID'];
 
    $query ="DELETE FROM studattendance where ID ='$STUDENTID'";
