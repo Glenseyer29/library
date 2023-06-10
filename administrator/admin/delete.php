@@ -1,6 +1,12 @@
 <?php
-$connection =mysqli_connect("localhost", "root", " ");
-$db ="mysqli_select_db"($connection, 'dbs');
+session_start(); //to display message
+$server = "localhost";
+$username = "root";
+$password = "";
+$dbname = "dbs";
+
+$conn = new mysqli($server, $username, $password, $dbname);
+
  if(isset($_POST['delete'])){
    $STUDENTID =$_POST['ID'];
 
