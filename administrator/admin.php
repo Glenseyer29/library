@@ -126,8 +126,12 @@ if(!$user->isLoggedIn()) {
 			case 'editUser':
 				require('admin/editUser.php');
 			break;
-      case 'attendanceRecord':
+      		case 'attendanceRecord':
 				require('admin/attendanceRecord.php');
+			break;
+
+			case 'delete':
+				require('admin/delete.php');
 			break;
 
 		  default:
