@@ -1,5 +1,5 @@
 <?php
-session_start(); //to display message
+session_start(); // To display messages
 $server = "localhost";
 $username = "root";
 $password = "";
@@ -7,20 +7,21 @@ $dbname = "dbs";
 
 $conn = new mysqli($server, $username, $password, $dbname);
 
- if(isset($_POST['delete'])){
-   $STUDENTID =$_POST['ID'];
-   $STUDENTID =$_POST['STUDENTID'];
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-   $query ="DELETE FROM studattendance where ID ='$STUDENTID'";
-   $query_run =mysqli_query($connection, $query);
-   if($query_run){
+if (isset($_POST['delete'])) {
+    $ID = $_POST['ID'];
 
-     echo '<script> alert("DATA DELETED"); </script>';
-     header("location:attendanceRecord.php");
-   }
-   else{
-     echo '<script> alert("DATA NOT DELETED"); </script>';
-   }
- }
-
- ?>
+    $query = "DELETE FROM studattendance WHERE ID = '$ID'";
+    $query_run = $conn->query($query);
+    if ($query_run) {
+        echo '<script>alert("DATA DELETED");</script>';
+        header("location: attendanceRecord.php");
+        exit;
+    } else {
+        echo '<script>alert("DATA NOT DELETED");</script>';
+    }
+}
+?>
